@@ -1,0 +1,24 @@
+﻿@page
+@model OrderHistoryModel
+@{
+    ViewData["Title"] = "Order history";
+    ViewData["ActivePage"] = ManageNavPages.OrderHistory;
+}
+
+<h3 class="mt-5">@ViewData["Title"]</h3>
+<div class="row">
+    <div class="col-md-6">
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <input asp-for="Username" class="form-control" disabled />
+                <label asp-for="Username" class="form-label"></label>
+            </div>
+        </form>
+        <br />
+        <p>Your account contains personal data that you have given us. This page allows you to get insight in your previous purchases.</p>
+        <form asp-controller="Order" asp-action="OrderHistory" asp-route-username="@Model.Username" method="post">
+            <button class="btn btn-primary" type="submit">View your orders</button>
+        </form>
+    </div>
+</div>

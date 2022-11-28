@@ -1,0 +1,67 @@
+﻿@page
+@model KRISTINA_VEZBA.Pages.OrderHistoryModel
+
+@{
+    ViewData["Title"] = "OrderHistory";
+}
+
+<h1>OrderHistory</h1>
+<br />
+<div>
+    <h4>Orders</h4>
+    <hr />
+
+    
+        @*<div class="col">
+            <div class="card pie-card">
+                <img src="@Model.OrderDetail.Pie.ImageThumbnailUrl" class="card-img-top" alt="@Model.OrderDetail.Pie.Name">
+                <div class="card-body pie-button">
+                    <h4 class="d-grid">
+                        <form class="d-flex" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-pieId="@Model.PieId" asp-route-amount="amount">
+                            <input class="btn btn-secondary col-10" type="submit" value="+ ADD TO CART" /><span>
+                                <input type="number" id="amount" name="amount" class="form-control" min="1" placeholder="qty" required oninvalid="this.setCustomValidity('Please select quantity')" />
+                            </span>
+                        </form>
+                    </h4>
+
+                    <div class="d-flex justify-content-between mt-2">
+                        <h2 class="text-start">
+                            <a asp-controller="Pie"
+                           asp-action="Details"
+                           asp-route-id="@Model.PieId"
+                           class="pie-link">@Model.Name</a>
+                        </h2>
+                        <h5 class="text-nowrap">
+                            @Model.Price.ToString("c")
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.OrderDetails))
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.OrderDetails)
+        </dd>
+       
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.OrderTotal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.OrderTotal)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.OrderPlaced)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.OrderPlaced)
+        </dd>
+    </dl>
+</div>
+<div>
+  
+    <a asp-page="List">Back to List</a>
+</div>

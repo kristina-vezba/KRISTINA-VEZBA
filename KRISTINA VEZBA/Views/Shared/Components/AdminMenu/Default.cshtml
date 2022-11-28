@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@model IEnumerable<Pie>
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"
+           data-toggle="dropdown"
+           data-hover="dropdown"
+           href="#"
+           role="button"
+           data-bs-toggle="dropdown"
+           id="nav-dropdown"
+           aria-expanded="false">
+        Admin
+        </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-dropdown">
+        <li>
+            <a asp-controller="Pie" asp-action="ManagePies" asp-route-Category="" class="dropdown-item">Manage Pies</a>
+        </li>
+    </ul>
+</li>
+}
+</ul>
+
+<script>
+    $(document).ready(function () {
+        $('.dropdown').mouseover(function () {
+            if ($('.navbar-toggler').is(':hidden')) {
+                $(this).addClass('show').attr('aria-expanded', 'true');
+                $(this).find('.dropdown-menu').addClass('show');
+            }
+        });
+    });
+</script>

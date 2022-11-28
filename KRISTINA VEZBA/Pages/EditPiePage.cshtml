@@ -1,0 +1,61 @@
+﻿@page
+@model KRISTINA_VEZBA.Pages.EditPiePageModel
+
+
+        <form asp-action="EditPie" method="post" role="form">
+           
+            <input type="hidden" asp-for="Pie.PieId" />
+            <input type="hidden" asp-for="Pie.CategoryId" />
+            <div class="form-group">
+                <label asp-for="Pie.Name" class="form-label"></label>
+                <input asp-for="Pie.Name" class="form-control" />
+               
+            </div>
+            <div class="form-group">
+                <label asp-for="Pie.ShortDescription" class="form-label"></label>
+                <input asp-for="Pie.ShortDescription" class="form-control" />
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="Pie.LongDescription" class="form-label"></label>
+                <input asp-for="Pie.LongDescription" class="form-control" />
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="Pie.AllergyInformation" class="form-label"></label>
+                <input asp-for="Pie.AllergyInformation" class="form-control" />
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="Pie.Price" class="control-label"></label>
+                <input asp-for="Pie.Price" class="form-control" />
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="Pie.ImageUrl" class="control-label"></label>
+                <input asp-for="Pie.ImageUrl" class="form-control" />
+                
+            </div>
+            <div class="form-group">
+                <label asp-for="Pie.ImageThumbnailUrl" class="control-label"></label>
+                <input asp-for="Pie.ImageThumbnailUrl" class="form-control" />
+                
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Pie.IsPieOfTheWeek" /> @Html.DisplayNameFor(model => model.Pie.IsPieOfTheWeek)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Pie.InStock" /> @Html.DisplayNameFor(model => model.Pie.InStock)
+                </label>
+            </div>
+            <div class="form-group">
+        <input type="submit" class="btn btn-secondary" value="Update" />
+            </div>
+        </form>
+<div>
+    <a asp-page="List">Back to List</a>
+</div>
+

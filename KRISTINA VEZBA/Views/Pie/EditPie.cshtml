@@ -1,0 +1,64 @@
+﻿@model Pie
+
+@{
+    ViewData["Title"] = "Edit Pie";
+}
+
+<h1>EditPie</h1>
+
+<h4>Pie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditPie">
+           
+            <input type="hidden" asp-for="PieId" />
+            <input type="hidden" asp-for="CategoryId" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortDescription" class="control-label"></label>
+                <input asp-for="ShortDescription" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="LongDescription" class="control-label"></label>
+                <input asp-for="LongDescription" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="AllergyInformation" class="control-label"></label>
+                <input asp-for="AllergyInformation" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label"></label>
+                <input asp-for="ImageUrl" class="form-control" /> 
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageThumbnailUrl" class="control-label"></label>
+                <input asp-for="ImageThumbnailUrl" class="form-control" />  
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsPieOfTheWeek" /> @Html.DisplayNameFor(model => model.IsPieOfTheWeek)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="InStock" /> @Html.DisplayNameFor(model => model.InStock)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="list">Back to List</a>
+</div>
+

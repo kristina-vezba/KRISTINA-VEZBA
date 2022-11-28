@@ -1,0 +1,71 @@
+﻿@model Pie
+
+
+
+<form asp-action="AddPie" method="post" role="form">
+    <h3 class="my-5">
+    You're just one step away from adding your delicious pie.
+    </h3>
+    <div class="col-6">
+        <div class="row g-2">
+            
+            <div class="col-6">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+            </div>
+            <div class="col-12">
+                <label asp-for="ShortDescription" class="form-label"></label>
+                <textarea asp-for="ShortDescription" class="form-control"></textarea>
+            </div>
+            <div class="col-12">
+                <label asp-for="LongDescription" class="form-label"></label>
+                <textarea asp-for="LongDescription" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="col-12">
+                <label asp-for="AllergyInformation" class="form-label"></label>
+                <textarea asp-for="AllergyInformation" class="form-control"></textarea>
+            </div>
+            <div class="col-6">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" class="form-control" />
+            </div>
+            <div class="col-6">
+                <label asp-for="CategoryId" class="form-label"></label>
+                <input asp-for="CategoryId" class="form-control" />
+            </div>
+            <div class="col-12">
+                <label asp-for="ImageUrl" class="form-label"></label>
+                <input asp-for="ImageUrl" class="form-control" type="url" />
+            </div>
+            <div class="col-12">
+                <label asp-for="ImageThumbnailUrl" class="form-label"></label>
+                <input asp-for="ImageThumbnailUrl" class="form-control" type="url" />
+            </div>
+            <div class="col-6">
+                <div class="form-check">
+                    <input asp-for="IsPieOfTheWeek" class="form-check-input" type="checkbox"  id="isPieOfTheWeek" value="">
+                    <label class="form-check-label" for="isPieOfTheWeek">
+                    Is pie of the week
+                    </label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-check">
+                    <input asp-for="InStock" class="form-check-input" type="checkbox"  id="inStock" value="">
+                    <label class="form-check-label" for="inStock">
+                    In stock
+                    </label>
+                </div>
+            </div>
+            <div class="col-6">
+                <label asp-for="Category" class="form-label"></label>
+                <input asp-for="Category" class="form-control" />
+            </div>
+        </div>
+        <div class="mt-2">
+            <div class="col-md-offset-2 col-md-5">
+                <input type="submit" class="btn btn-secondary" value="Submit" />
+            </div>
+        </div>
+    </div>
+</form>

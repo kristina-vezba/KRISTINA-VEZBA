@@ -1,0 +1,56 @@
+﻿@model List<KRISTINA_VEZBA.Models.Order>
+
+@{
+    ViewData["Title"] = "OrderHistory";
+}
+
+<h1>OrderHistory</h1>
+<br />
+<div class="row gx-3">
+    @foreach (var order in Model)
+    {
+        <h4>Orders</h4>
+        <form asp-action="OrderHistory">
+            <input type="hidden" asp-for="@order.Email" />
+        </form>
+        <hr />
+    <div class="col-8">
+        @foreach(var detail in order.OrderDetails)
+        {
+            <div class="card shopping-cart-card mb-2">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="@detail.Pie.ImageThumbnailUrl" class="img-fluid rounded-start p-2" alt="@detail.Pie.Name">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-text">@detail.Amount x @detail.Pie.Name</h5>
+                            <div class="d-flex justify-content-between">
+                                <h6>@detail.Pie.ShortDescription</h6>
+                                <h2>@detail.Pie.Price.ToString("c")</h2> <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-4">
+        <div class="card shopping-cart-card p-3">
+            <div class="row">
+                <h4 class="col">Total:</h4>
+                <h4 class="col text-end">@order.OrderTotal.ToString("c")</h4>
+            </div>
+        </div>
+        <div class="card shopping-cart-card p-3">
+            <div class="row">
+                <h4 class="col">Order placed:</h4>
+                <h4 class="col text-end">@order.OrderPlaced</h4>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+<div>
+    <a asp-controller="Pie" asp-action="List">Back to List</a>
+</div>

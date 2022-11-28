@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KRISTINA_VEZBA", "KRISTINA VEZBA\KRISTINA_VEZBA.csproj", "{C6C39CD3-A8DF-4611-A368-1B41289A09BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BethanysPieShopTests", "BethanysPieShopTests\BethanysPieShopTests.csproj", "{60153F05-B3A0-4445-9B3C-BC0EA8686BBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6C39CD3-A8DF-4611-A368-1B41289A09BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6C39CD3-A8DF-4611-A368-1B41289A09BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6C39CD3-A8DF-4611-A368-1B41289A09BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6C39CD3-A8DF-4611-A368-1B41289A09BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60153F05-B3A0-4445-9B3C-BC0EA8686BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60153F05-B3A0-4445-9B3C-BC0EA8686BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60153F05-B3A0-4445-9B3C-BC0EA8686BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60153F05-B3A0-4445-9B3C-BC0EA8686BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B1C45FA-0EF4-4F90-B003-7DF35D11F862}
+	EndGlobalSection
+EndGlobal

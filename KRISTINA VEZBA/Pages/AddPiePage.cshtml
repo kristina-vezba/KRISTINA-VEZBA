@@ -1,0 +1,71 @@
+﻿@page
+@model KRISTINA_VEZBA.Pages.AddPiePageModel
+
+
+<form asp-action="AddPie" method="post" role="form">
+    <h3 class="my-5">
+        You're just one step away from adding your delicious pie.
+    </h3>
+    <div class="col-6">
+        <div class="row g-2">
+
+            <div class="col-6">
+                <label asp-for="Pie.Name" class="form-label"></label>
+                <input asp-for="Pie.Name" class="form-control" />
+            </div>
+            <div class="col-12">
+                <label asp-for="Pie.ShortDescription" class="form-label"></label>
+                <textarea asp-for="Pie.ShortDescription" class="form-control"></textarea>
+            </div>
+            <div class="col-12">
+                <label asp-for="Pie.LongDescription" class="form-label"></label>
+                <textarea asp-for="Pie.LongDescription" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="col-12">
+                <label asp-for="Pie.AllergyInformation" class="form-label"></label>
+                <textarea asp-for="Pie.AllergyInformation" class="form-control"></textarea>
+            </div>
+            <div class="col-6">
+                <label asp-for="Pie.Price" class="form-label"></label>
+                <input asp-for="Pie.Price" class="form-control" />
+            </div>
+            <div class="col-6">
+                <label asp-for="Pie.CategoryId" class="form-label"></label>
+                <input asp-for="Pie.CategoryId" class="form-control" />
+            </div>
+            <div class="col-12">
+                <label asp-for="Pie.ImageUrl" class="form-label"></label>
+                <input asp-for="Pie.ImageUrl" class="form-control" type="url" />
+            </div>
+            <div class="col-12">
+                <label asp-for="Pie.ImageThumbnailUrl" class="form-label"></label>
+                <input asp-for="Pie.ImageThumbnailUrl" class="form-control" type="url" />
+            </div>
+            <div class="col-6">
+                <div class="form-check">
+                    <input asp-for="Pie.IsPieOfTheWeek" class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="IsPieOfTheWeek">
+                    <label class="form-check-label" for="gridRadios1">
+                        Is pie of the week
+                    </label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-check">
+                    <input asp-for="Pie.InStock" class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="InStock">
+                    <label class="form-check-label" for="gridRadios2">
+                        In stock
+                    </label>
+                </div>
+            </div>
+            <div class="col-6">
+                <label asp-for="Pie.Category" class="form-label"></label>
+                <input asp-for="Pie.Category" class="form-control" />
+            </div>
+        </div>
+        <div class="mt-2">
+            <div class="col-md-offset-2 col-md-5">
+                <input type="submit" class="btn btn-secondary" value="Submit" />
+            </div>
+        </div>
+    </div>
+</form>
