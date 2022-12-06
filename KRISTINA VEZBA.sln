@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KRISTINA_VEZBA", "KRISTINA 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BethanysPieShopTests", "BethanysPieShopTests\BethanysPieShopTests.csproj", "{60153F05-B3A0-4445-9B3C-BC0EA8686BBE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BethanysPieShopAPI", "BethanysPieShopAPI\BethanysPieShopAPI.csproj", "{7980ABF1-F403-4292-856B-802AD49E484E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{60153F05-B3A0-4445-9B3C-BC0EA8686BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60153F05-B3A0-4445-9B3C-BC0EA8686BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60153F05-B3A0-4445-9B3C-BC0EA8686BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7980ABF1-F403-4292-856B-802AD49E484E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7980ABF1-F403-4292-856B-802AD49E484E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7980ABF1-F403-4292-856B-802AD49E484E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7980ABF1-F403-4292-856B-802AD49E484E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
