@@ -1,4 +1,6 @@
-﻿namespace KRISTINA_VEZBA.Models
+﻿using System.Net.Http.Headers;
+
+namespace KRISTINA_VEZBA.Models
 {
     public class Category
     {
@@ -6,5 +8,7 @@
         public string CategoryName { get; set; } = string.Empty;
         public string? Description { get; set; }
         public List<Pie>? Pies { get; set; }
+
     }
 }
+

@@ -11,6 +11,6 @@ namespace BethanysPieShopAPI.DbContexts
         {
         }
 
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<CategoryAPI> Categories { get; set; } = null!;
     }
 }

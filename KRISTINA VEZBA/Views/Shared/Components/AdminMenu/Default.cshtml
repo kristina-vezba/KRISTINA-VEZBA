@@ -1,6 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@*@using BethanysPieShopAPI.Models*@
 
 @model IEnumerable<Pie>
+
+@*@inject IEnumerable<CategoryAPI> Categories*@
 
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
@@ -22,6 +25,9 @@
     <ul class="dropdown-menu" aria-labelledby="nav-dropdown">
         <li>
             <a asp-controller="Pie" asp-action="ManagePies" asp-route-Category="" class="dropdown-item">Manage Pies</a>
+        </li>
+        <li>
+            <a asp-controller="Category" asp-action="ManageCategories" class="dropdown-item">Manage Categories</a>
         </li>
     </ul>
 </li>

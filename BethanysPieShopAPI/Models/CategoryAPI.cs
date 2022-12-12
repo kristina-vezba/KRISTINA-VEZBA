@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BethanysPieShopAPI.Models
 {
-    public class Category
+    public class CategoryAPI
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

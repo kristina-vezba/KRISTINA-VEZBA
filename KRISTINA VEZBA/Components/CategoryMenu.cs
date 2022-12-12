@@ -1,4 +1,5 @@
-﻿using KRISTINA_VEZBA.Models;
+﻿
+using KRISTINA_VEZBA.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KRISTINA_VEZBA.Components
@@ -6,9 +7,11 @@ namespace KRISTINA_VEZBA.Components
     public class CategoryMenu: ViewComponent
     {
         private readonly ICategoryRepository _categoryRepository;
+       
         public CategoryMenu(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
+            
         }
         public IViewComponentResult Invoke()
         {

@@ -65,8 +65,8 @@ namespace KRISTINA_VEZBA.Controllers
         public IActionResult AddPie(Pie pie)
         {
           
-                _pieRepository.CreatePie(pie);
-                return RedirectToAction("List");
+            _pieRepository.CreatePie(pie);
+            return RedirectToAction("List");
         }
 
         public IActionResult EditPie(int pieId)
