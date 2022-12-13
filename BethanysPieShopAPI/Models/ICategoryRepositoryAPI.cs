@@ -6,7 +6,6 @@
         Task<CategoryAPI?> GetCategoryAsync(int categoryId);
         Task AddCategoryAsync(CategoryAPI category);
         Task UpdateCategory(CategoryAPI category);
-        void DeleteCategory(CategoryAPI category);
-        Task<bool> SaveChangesAsync();
+        Task DeleteCategory(CategoryAPI category);    
     }
 }

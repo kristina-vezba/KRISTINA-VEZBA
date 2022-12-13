@@ -12,106 +12,68 @@ namespace BethanysPieShopAPI.Controllers
     public class CategoryAPIController : ControllerBase
     {
         private readonly ICategoryRepositoryAPI _categoryRepositoryApi;
-        private readonly IMapper _mapper;
 
-        public CategoryAPIController(ICategoryRepositoryAPI categoryRepositoryApi, IMapper mapper)
+        public CategoryAPIController(ICategoryRepositoryAPI categoryRepositoryApi)
         {
             _categoryRepositoryApi = categoryRepositoryApi ?? 
                 throw new ArgumentNullException(nameof(categoryRepositoryApi));
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-
+        [ProducesResponseType(typeof(List<CategoryAPI>), StatusCodes.Status200OK)]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CategoryAPI>>> GetAllCategories()
+        public async Task<IActionResult> GetAllCategories()
         {
             var categories = await _categoryRepositoryApi.GetAllCategoriesAsync();
+
             return Ok(categories);
         }
 
+        [ProducesResponseType(typeof(CategoryAPI), StatusCodes.Status200OK)]
         [HttpGet("{id}")]
-        public async Task<ActionResult<CategoryAPI>> GetCategory(int id)
+        public async Task<IActionResult> GetCategoryAsync(int id)
         {
             var category = await _categoryRepositoryApi.GetCategoryAsync(id);
+
             if (category == null)
             {
                 return NotFound();
             }
+
             return Ok(category);
         }
 
+        [ProducesResponseType(typeof(CategoryAPI), StatusCodes.Status200OK)]
         [HttpPost]
-        public async Task<ActionResult<CategoryAPI>> CreateCategory(CategoryAPI category)
+        public async Task<IActionResult> CreateCategory(CategoryAPI category)
         {
             await _categoryRepositoryApi.AddCategoryAsync(category);
-            await _categoryRepositoryApi.SaveChangesAsync();
 
             return CreatedAtAction("GetCategory", new { id = category.CategoryId }, category);
         }
 
-        [HttpPut("{categoryId}")]
-        public async Task<ActionResult> UpdateCategory(int categoryId, CategoryAPI category)
+        [ProducesResponseType(typeof(CategoryAPI), StatusCodes.Status200OK)]
+        [HttpPut]
+        public async Task<IActionResult> UpdateCategory(CategoryAPI category)
         {
-            //var categoryEntity = await _categoryRepositoryApi.GetCategoryAsync(categoryId);
-            //if (categoryEntity == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //_mapper.Map(category, categoryEntity);
-            await _categoryRepositoryApi.UpdateCategory(category);
-
-            await _categoryRepositoryApi.SaveChangesAsync();
+             await _categoryRepositoryApi.UpdateCategory(category);
 
             return Ok();
         }
 
+        [ProducesResponseType(typeof(CategoryAPI), StatusCodes.Status200OK)]
         [HttpDelete("{categoryId}")]
-        public async Task<ActionResult> DeleteCategory(int categoryId)
+        public async Task<IActionResult> DeleteCategory(int categoryId)
         {
             var categoryEntity = await _categoryRepositoryApi.GetCategoryAsync(categoryId);
+
             if (categoryEntity == null)
             {
                 return NotFound();
             }
 
-            _categoryRepositoryApi.DeleteCategory(categoryEntity);
-            await _categoryRepositoryApi.SaveChangesAsync();
-
+            await _categoryRepositoryApi.DeleteCategory(categoryEntity);
+            
             return NoContent();
         }
-
-
-
-        //[HttpPatch]
-        //public async Task<ActionResult> PartiallyUpdateCategory(int categoryId, 
-        //    JsonPatchDocument<CategoryAPI> patchDocument)
-        //{
-        //    var categoryEntity = await _categoryRepositoryApi.GetCategoryAsync(categoryId);
-        //    if (categoryEntity == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var categoryToPatch = _mapper.Map<CategoryAPI>(categoryEntity);
-
-        //    patchDocument.ApplyTo(categoryToPatch, ModelState);
-
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    if (!TryValidateModel(categoryToPatch))
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    _mapper.Map(categoryToPatch, categoryEntity);
-        //    await _categoryRepositoryApi.SaveChangesAsync();
-
-        //    return NoContent();
-        //}
-
     }
-
 }

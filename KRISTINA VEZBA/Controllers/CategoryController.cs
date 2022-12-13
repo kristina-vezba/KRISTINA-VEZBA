@@ -26,27 +26,29 @@ namespace KRISTINA_VEZBA.Controllers
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<ActionResult> ManageCategories()
+        public async Task<IActionResult> ManageCategories()
         {
-            List<Category> categories = null;
+            List<Category> categories = new List<Category>();
             HttpResponseMessage response = await _client.GetAsync("api/categories");
+
             if (response.IsSuccessStatusCode)
             {
                 categories = await response.Content.ReadAsAsync<List<Category>>();
             }
+
             return View(categories);  
         }
 
-        
-        public async Task<ActionResult> GetCategory(int id)
+        public async Task<IActionResult> GetCategory(int id)
         {
             Category category = new Category();
+            HttpResponseMessage response = await _client.GetAsync($"api/categories/{id}");
 
-            HttpResponseMessage response = await _client.GetAsync("api/categories/{id}");
             if (response.IsSuccessStatusCode)
             {
                 category = await response.Content.ReadAsAsync<Category>();
             }
+
             return View(category);
         }
 
@@ -56,62 +58,52 @@ namespace KRISTINA_VEZBA.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateCategory(Category category)
+        public async Task<IActionResult> CreateCategory(Category category)
         {
             HttpResponseMessage response = await _client.PostAsJsonAsync("api/categories", category);
-            response.EnsureSuccessStatusCode();
+            if (response.IsSuccessStatusCode)
+            {
+                category = await response.Content.ReadAsAsync<Category>();
+            }
 
             return RedirectToAction("ManageCategories");
         }
 
-        public async Task<ActionResult> UpdateCategory(int categoryId)
+        public async Task<IActionResult> UpdateCategory(int categoryId)
         {
+            Category category = new Category();
             HttpResponseMessage response = await _client.GetAsync($"api/categories/{categoryId}");
-            response.EnsureSuccessStatusCode();
-            Category category = response.Content.ReadAsAsync<Category>().Result;
+            if (response.IsSuccessStatusCode)
+            {
+                category = response.Content.ReadAsAsync<Category>().Result;
+            }
+            
             return View(category);
         }
 
         [HttpPost]
-        public async Task<ActionResult> UpdateCategory( Category category)
+        public async Task<IActionResult> UpdateCategory( Category category)
         {
-            HttpResponseMessage response = await _client.PutAsJsonAsync($"api/categories/{category.CategoryId}", category);
-            response.EnsureSuccessStatusCode();
+            HttpResponseMessage response = await _client.PutAsJsonAsync($"api/categories", category);
+            if (response.IsSuccessStatusCode)
+            {
+                category = response.Content.ReadAsAsync<Category>().Result;
+            }
+
             return RedirectToAction("ManageCategories");
         }
-
-        public async Task<ActionResult> DeleteCategory(int categoryId)
+       
+        public async Task<IActionResult> DeleteCategory(int categoryId)
         {
+            Category category = new Category();
             HttpResponseMessage response = await _client.DeleteAsync($"api/categories/{categoryId}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                category = response.Content.ReadAsAsync<Category>().Result;
+            }
+
             return RedirectToAction("ManageCategories");
         }
-
-        // ++++ Ova radi ++++
-        //public async Task<IActionResult> ManageCategories()
-        //{
-        //    List<Category> categories = null;
-        //    using (var client = new HttpClient())
-        //    {
-        //        client.BaseAddress = new Uri("http://localhost:5002/");
-        //        client.DefaultRequestHeaders.Accept.Clear();
-        //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-        //        HttpResponseMessage Res = await client.GetAsync("api/categories/");
-        //        if (Res.IsSuccessStatusCode)
-        //        {
-        //            var CatRsponse = Res.Content.ReadAsStringAsync().Result;
-        //            categories = JsonConvert.DeserializeObject<List<Category>>(CatRsponse);
-        //        }
-        //        return View(categories);
-        //    }
-        //}
-
-
-
-
-
-
-
     }
-
 }

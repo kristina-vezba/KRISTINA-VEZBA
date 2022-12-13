@@ -24,25 +24,21 @@ namespace BethanysPieShopAPI.Models
             return await _bethanysPieShopDbContext.Categories.FirstOrDefaultAsync(c => c.CategoryId == categoryId);
         }
 
-        public Task AddCategoryAsync(CategoryAPI category)
+        public async Task AddCategoryAsync(CategoryAPI category)
         {
             _bethanysPieShopDbContext.Categories.Add(category);
-            return Task.CompletedTask;
+            await _bethanysPieShopDbContext.SaveChangesAsync();
         }
-        public Task UpdateCategory(CategoryAPI category)
+        public async Task UpdateCategory(CategoryAPI category)
         {
             _bethanysPieShopDbContext.Categories.Update(category);
-            return Task.CompletedTask;
+            await _bethanysPieShopDbContext.SaveChangesAsync();
         }
 
-        public void DeleteCategory(CategoryAPI category)
+        public async Task DeleteCategory(CategoryAPI category)
         {
             _bethanysPieShopDbContext.Remove(category);
-        }
-
-        public async Task<bool> SaveChangesAsync()
-        {
-            return (await _bethanysPieShopDbContext.SaveChangesAsync() >= 0);
+             await _bethanysPieShopDbContext.SaveChangesAsync();
         }
     }
 }
