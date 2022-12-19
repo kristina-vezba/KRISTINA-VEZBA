@@ -1,19 +1,15 @@
-﻿@model Pie
+﻿@model AddEditPieViewModel
 
-@{
-    ViewData["Title"] = "Edit Pie";
-}
 
 <h1>EditPie</h1>
 
 <h4>Pie</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="EditPie">
            
             <input type="hidden" asp-for="PieId" />
-            <input type="hidden" asp-for="CategoryId" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -42,23 +38,33 @@
                 <label asp-for="ImageThumbnailUrl" class="control-label"></label>
                 <input asp-for="ImageThumbnailUrl" class="form-control" />  
             </div>
-            <div class="form-group form-check">
+            <div class="col-6 form-group form-check"><br />
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="IsPieOfTheWeek" /> @Html.DisplayNameFor(model => model.IsPieOfTheWeek)
                 </label>
             </div>
-            <div class="form-group form-check">
+            <div class="col-6 form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="InStock" /> @Html.DisplayNameFor(model => model.InStock)
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-secondary" />
+                <label asp-for="Category" class="form-label" for="category-list"></label>
+                <select class="form-select" name="CategoryId" id="CategoryId">
+                    <option selected value="@Model.CategoryId">@Model.Category.CategoryName</option>
+                    @foreach (var cat in Model.Categories)
+                    {
+                        <option value="@cat.CategoryId">@cat.CategoryName</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group"><br />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-<div>
+<div><br />
     <a asp-action="list">Back to List</a>
 </div>
 

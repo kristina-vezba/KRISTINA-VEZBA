@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using KRISTINA_VEZBA.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace KRISTINA_VEZBA.Models
+namespace KRISTINA_VEZBA.ViewModels
 {
-    public class Pie
+    public class AddEditPieViewModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -19,5 +20,7 @@ namespace KRISTINA_VEZBA.Models
         public bool InStock { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        public List<Category> Categories { get; set; }
     }
 }

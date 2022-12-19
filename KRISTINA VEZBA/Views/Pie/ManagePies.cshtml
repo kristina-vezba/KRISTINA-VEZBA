@@ -24,9 +24,9 @@
                             <div class="d-flex justify-content-between">
                                 <div class="col-md-5"><h6>@pie.ShortDescription</h6></div>
                                 <h2>@pie.Price.ToString("c")</h2> <br>
-                                <p class="button">
+                                @*<p class="button">*@
                                     <a class="btn btn-secondary" asp-controller="Pie" asp-action="EditPie" asp-route-pieId="@pie.PieId">Edit</a>
-                               </p>
+                              @* </p>*@
                                <button type="button" class="btn btn-secondary" onclick="toggleModal(@pie.PieId)">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>

@@ -48,7 +48,7 @@ namespace BethanysPieShopAPI.Controllers
         {
             await _categoryRepositoryApi.AddCategoryAsync(category);
 
-            return CreatedAtAction("GetCategory", new { id = category.CategoryId }, category);
+            return Ok();
         }
 
         [ProducesResponseType(typeof(CategoryAPI), StatusCodes.Status200OK)]
@@ -73,7 +73,7 @@ namespace BethanysPieShopAPI.Controllers
 
             await _categoryRepositoryApi.DeleteCategory(categoryEntity);
             
-            return NoContent();
+            return Ok();
         }
     }
 }

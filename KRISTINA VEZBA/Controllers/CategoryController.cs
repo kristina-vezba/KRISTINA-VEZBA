@@ -61,6 +61,7 @@ namespace KRISTINA_VEZBA.Controllers
         public async Task<IActionResult> CreateCategory(Category category)
         {
             HttpResponseMessage response = await _client.PostAsJsonAsync("api/categories", category);
+
             if (response.IsSuccessStatusCode)
             {
                 category = await response.Content.ReadAsAsync<Category>();
@@ -73,9 +74,10 @@ namespace KRISTINA_VEZBA.Controllers
         {
             Category category = new Category();
             HttpResponseMessage response = await _client.GetAsync($"api/categories/{categoryId}");
+
             if (response.IsSuccessStatusCode)
             {
-                category = response.Content.ReadAsAsync<Category>().Result;
+                category = await response.Content.ReadAsAsync<Category>();
             }
             
             return View(category);
@@ -85,22 +87,23 @@ namespace KRISTINA_VEZBA.Controllers
         public async Task<IActionResult> UpdateCategory( Category category)
         {
             HttpResponseMessage response = await _client.PutAsJsonAsync($"api/categories", category);
+
             if (response.IsSuccessStatusCode)
             {
-                category = response.Content.ReadAsAsync<Category>().Result;
+                category = await response.Content.ReadAsAsync<Category>();
             }
 
             return RedirectToAction("ManageCategories");
         }
        
-        public async Task<IActionResult> DeleteCategory(int categoryId)
+        public async Task<IActionResult> DeleteCategoryAsync(int categoryId)
         {
             Category category = new Category();
             HttpResponseMessage response = await _client.DeleteAsync($"api/categories/{categoryId}");
 
             if (response.IsSuccessStatusCode)
             {
-                category = response.Content.ReadAsAsync<Category>().Result;
+                category = await response.Content.ReadAsAsync<Category>();
             }
 
             return RedirectToAction("ManageCategories");
